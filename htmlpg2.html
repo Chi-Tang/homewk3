@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> 易 經 卜 卦 盤</title>
+<meta name=keywords content="萬年曆;紫微斗數;易經八卦;陽宅風水 ;高中數學;農(陽)曆;月曆;曆法;節日;紀念日;節氣;天干地支;生肖;徐其堂老師休閒園地">
+<link rel="stylesheet" href="/jquery.mobile.min.css">
+<script src="/jquery-1.7.1.min.js"></script> 
+<script src="/jquery.mobile.min.js"></script> 
+<!--  <script type="text/javascript" language="javascript" src="tanga/jquery-1.7.1.min.js"></script>
+   <script type="text/javascript" language="javascript" src="tanga/jquery.mobile.min.js"></script>
+   <script type="text/javascript" language="javascript" src="tanga/tanga.nocache.js"></script> -->
+  
+<style>
+<!--
+ #opd1 {
+        position: relative;
+        left: 28px;
+        top: 1pt;
+        border: 1px solid #330000;
+    }
+ #opd3 {
+        position: relative;
+        left: 40px;
+        top: 1pt;
+        border: 1px solid #330000;
+    }
+ #opd2{	
+	 position:relative;
+	 left:5px;
+     top:1pt;	
+	 border:1px solid #330000;	
+   /* background-color:#FFFF99;	/*背景顏色設為淡黃色*/
+	/*margin:2px;	/*四周邊界距離設為60px*/
+	/*padding:2px;	/*四周邊界留白設為60px*/
+	/*border:3px double black;	/*邊框寬度10px型式為雙線顏色為紅色*/
+}
+-->
+</style>
+</head>
+<body>
+  
+<script>
+    function cald() {
+        //  <%
+        //  Dim TNo1 ,TNo2, TNo3,No1 ,No2, No3
+        // TNo1 = Request("Name")
+        // TNo2 = Request("Tel")
+        // TNo3 = Request("Add")
+        // No1 = Cint(TNo1)
+        // No2 = Cint(TNo2)
+        //  No3 = Cint(TNo3)   %>
+        var opd = document.form14_1_2.opd1;
+        var No1 = parseInt(opd.value);
+        opd = document.form14_1_2.opd2;
+        var No2 = parseInt(opd.value);
+        opd = document.form14_1_2.opd3;
+        var No3 = parseInt(opd.value);
+        // var op = document.getElementById("plus");
+        //   var SND =Array(  
+        var ZNAM = Array("坤", "艮", "坎", "巽", "震", "離", "兌", "乾", "坤");
+        var ZNUM = Array("0,0,0", "0,0,1", "0,1,0", "0,1,1", "1,0,0", "1,0,1", "1,1,0", "1,1,1", "0,0,0");
+        var ZNAMM = Array("地", "山", "水", "風", "雷", "火", "澤", "天", "地");
+        //'Dim No1 ,No2, No3
+        var i, j, k, n;
+        var CGNo1, CGNo2, MGN1, MGN11, MGN2, MGN22, MDN3, MDN33;
+        var GNam1, GNam2, MGNam1, MGNam2;
+        var GNum1, GNum2;
+        // var Ldpos = new Array(3);
+        var GNum1s = new Array(2), GNum2s = new Array(2);
+        var No12;
+        var FGANK, FGCNK;
+        // var Ldpos = new Array(3);
+        var FGAN = new Array(5), FGCN = new Array(5);
+        var FGAH = new Array(5), FGCH = new Array(5);
+        var FGACK, FGCCK;
+        //CGNo1 = Math.floor(No1 % 8);
+        CGNo1 = 8 - Math.floor(No1 % 8);
+        GNam1 = ZNAMM[CGNo1];
+        GNum1 = ZNUM[CGNo1];
+        // GNum1s = split(GNum1, ",");
+        // GNum1s[2] = GNum1.substr(4, 1);
+        GNum1s = GNum1.split(",");
+        No12 = Math.floor(No1) + Math.floor(No2);
+        CGNo2 = 8 - Math.floor(No12 % 8);
+        GNam2 = ZNAMM[CGNo2];
+        GNum2 = ZNUM[CGNo2];
+        // GNum2s = SPLIT(GNum2, ",");
+       // GNum2s[1] = GNum2.substr(2, 1);
+        GNum2s = GNum2.split(",");
+        // ''FGAN(5)=GNum1s+GNum2s
+        /// For i=0 to 2
+        for (i = 0 ; i <= 2; i++) {
+            FGAN[i] = GNum1s[i];
+            FGAN[i + 3] = GNum2s[i];
+        };   ///Next
+        /// For j=0 to 5
+        //  Select Case FGANK ;
+        //    if (FGANK == "1") {
+        //        FGAH[j] = "一 ";
+        //    } else {
+        //        FGAH[j] = "- -";
+        //     }
+       for (j = 0 ; j <= 5; j++) {
+           FGANK = FGAN[j];
+            switch (FGANK) {
+               case "1" :
+                   FGAH[j] = "一 ";
+                    break;
+               case "0" :
+                   FGAH[j] = "- -";
+                 break;
+            }
+            FGCN[j] = FGAN[j]
+       }  ///Next
+       MDN3 = Math.floor(No3 % 6)
+       if (MDN3 == 0) {   // then
+           MDN33 = 5;
+       } else {
+           MDN33 = MDN3 - 1;
+       }  //  end if  
+
+        // For k=0 to 5
+        // if k=Int(MDN33) then 
+       for (k = 0 ; k <= 5; k++) {
+           if (k == Math.floor(MDN33)) {    //Then
+               FGANK = FGAN[k];
+               //  Select Case FGANK ;
+               switch (FGANK) {
+                   case "1":
+                       FGCN[k] = "0";
+                       break;
+                   case "0":
+                       FGCN[k] = "1";
+                       break;
+               }
+               // Select Case FGANK
+               //  Case "1"
+               //  FGCN(k)="0 "
+               //  Case "0"
+               //  FGCN(k)="1"
+               //  End  Select  
+           } else {
+               FGCN[k] = FGAN[k];
+           } // end if  
+       } // Next 
+       for (n = 0 ; n <= 5; n++) {
+           FGCNK = FGCN[n];
+           //  Select Case FGCNK ;
+           switch (FGCNK) {
+               case "1":
+                   FGCH[n] = "一 ";
+                   break;
+               case "0":
+                   FGCH[n] = "- -";
+                   break;
+           }
+       }  ///next
+        //'''Response.Write   "<TD>"&"卦序號=8-(卦碼號)"& MGN2 & MGN1  & "</TD>"
+       MGN2 = 4 * FGCN[3] + 2 * FGCN[4] + 1 * FGCN[5];
+        // 'CGCN22= 8-(CGCN2 % 8)
+       MGN22 = (MGN2 % 8);
+       MGNam2 = ZNAMM[MGN22];
+
+       MGN1 = 4 * FGCN[0] + 2 * FGCN[1] + 1 * FGCN[2];
+        // ' CGCN11= 8-(CGCN1 % 8)
+       MGN11 = (MGN1 % 8);
+       MGNam1 = ZNAMM[MGN11];
+       //'' FGACK=PKCOD(GNam1,GNam2)
+        //'' FGCCK=PKCOD(MGNam1,MGNam2)
+        FGACK = QueryDataAndSendT(GNam1, GNam2);
+        FGCCK = QueryDataAndSendT(MGNam1, MGNam2);
+        ///////////////////////////////////////////////////////////////// 
+        var Row0 = "<CENTER><TABLE Border=1 BGCOLOR=#FFFF00 >" + "<TR>" + "<TD width=30>卦名" + "</TD>" + "<TD width=30>成卦</TD>" + "<TD width =30>變爻</TD>" + "<TD width =30>卦名</TD>" + "<TD width =30>之卦</TD>" + "</TR>";
+        var Row1 = "<TR >" + "<TD width=30  RowSpan=3 ColSpan=1>" + GNam2 + "</TD>" + "<TD width=30>" + FGAH[5] + "</TD>" + "<TD width=30  >" + "</TD>" + "<TD width =30 RowSpan=3 ColSpan=1>" + MGNam2 + "</TD>" + "<TD width =30>" + FGCH[5] + "</TD>" + "</TR>";
+        var Row2 = "<TR>" + "<TD width=30>" + FGAH[4] + "</TD>" + "<TD width=30  >" + "</TD>" + "<TD width =30>" + FGCH[4] + "</TD>" + "</TR>";
+        var Row3 = "<TR>" + "<TD width=30>" + FGAH[3] + "</TD>" + "<TD width=30>" + "</TD>" + "<TD width =30>" + FGCH[3] + "</TD>" + "</TR>";
+        var Row4 = "<TR >" + "<TD width=30  RowSpan=3 ColSpan=1>" + GNam1 + "</TD>" + "<TD width=30>" + FGAH[2] + "</TD>" + "<TD width=30  >" + "</TD>" + "<TD width =30 RowSpan=3 ColSpan=1>" + MGNam1 + "</TD>" + "<TD width =30>" + FGCH[2] + "</TD>" + "</TR>";
+        var Row5 = "<TR>" + "<TD width=30>" + FGAH[1] + "</TD>" + "<TD width=30  >" + "</TD>" + "<TD width =30>" + FGCH[1] + "</TD>" + "</TR>";
+        var Row6 = "<TR>" + "<TD width=30>" + FGAH[0] + "</TD>" + "<TD width=30>" + "</TD>" + "<TD width =30>" + FGCH[0] + "</TD>" + "</TR>";
+        var Row7 = "<TR >" + "<TD width=76 >" + FGACK + "</TD>" + "<TD>" + "</TD>" + "<TD width=30  >" + (MDN33 + 1) + "</TD>" + "<TD width=76>" + FGCCK + "</TD>" + "</TR>";
+        var Row8 = "<TR style='writing-mode:bt-rl' width =150>" + "尊重著作權:<u>免費分享</u>" + "</TR>" + "</TABLE>";
+        var Row9 = "<CENTER><H2><FONT color=#FF0000>" + "若需要<u>卦 盤 評 論 表</u>" + "</FONT><HR></H2>";
+        var Row10 = "<CENTER><H2><FONT color=#FF0000>" + "    請 Email:  tech.t1206@gmail.com 即可聯絡,  謝謝" + "</FONT><HR></H2>";
+       // var RowT = Row0 + Row1;
+        var RowT = Row0 + Row1 + Row2 + Row3 + Row4 + Row5 + Row6 + Row7 + Row8 + Row9 + Row10;
+        // document.Write(RowT);
+        // var msg = document.getElementById("msg");
+     //   if (msg.checked) {
+     //       alert("運算結果: " + RowT);
+      // }
+     //  else {
+            var o = document.getElementById("output");
+            o.innerHTML = "運算結果如下: " + RowT;
+     //  }
+      
+    }
+    function QueryDataAndSendT(XNam1, XNam2) {
+        //   var SND =Array(  
+        var ZNAM1 = Array("地", "天", "澤", "火", "雷", "風", "水", "山", "地");
+        var ZNAM2 = Array("地", "天", "澤", "火", "雷", "風", "水", "山", "地");
+        // var Ldpos = new Array(3);
+        //''var ZNAMT8(8), ZNAMT7(8), ZNAMT6(8), ZNAMT5(8), ZNAMT4(8), ZNAMT3(8), ZNAMT2(8), ZNAMT1(8), ZNAMT0(8) As Array
+        //''var ZNAMT(8, 8) As Array
+        var ZNAMT0 = Array("坤為地", "天地否", "澤地萃", "火地晉", "雷地豫", "風地觀", "水地比", "山地剝", "坤為地");
+        var ZNAMT1 = Array("地天泰", "乾為天", "澤天夬", "火天大有", "雷天大壯", "風天小畜", "水天需", "山天大畜", "地天泰");
+        var ZNAMT2 = Array("地澤臨", "天澤履", "兌為澤", "火澤睽", "雷澤歸妹", "風澤中孚", "水澤節", "山澤損", "地澤臨");
+        var ZNAMT3 = Array("地火明夷", "天火同人 ", "澤火革", "離為火", "雷火豐", "風火家人", "水火既濟", "山火賁", "地火明夷");
+        var ZNAMT4 = Array("地雷復", "天雷無妄", "澤雷隨", "火雷噬嗑", "震為雷", "風雷益", "水雷屯", "山雷頤", "地雷復");
+        var ZNAMT5 = Array("地風升", "天風姤", "澤風大過", "火風鼎", ",雷風恆", "巽為風 ", "水風井", "山風蠱", "地風升");
+        var ZNAMT6 = Array("地水師", "天水訟", "澤水困", "火水未濟", "雷水解", "風水渙", "坎為水", "山水蒙", "地水師");
+        var ZNAMT7 = Array("地山謙", "天山遯", "澤山咸 ", "火山旅", "雷山小過", "風山漸", "水山蹇", "艮為山", "地山謙");
+        var ZNAMT8 = Array("坤為地", "天地否", "澤地萃", "火地晉", "雷地豫", "風地觀", "水地比", "山地剝", "坤為地");
+        //Dim ZNAMTT(8, 8)   // x[5][12] = 3.0;
+        var ZNAMTT = new Array(8);
+        var h,i, j, k, m, n;
+        //For i = 0 To 8
+       for (h = 0 ; h <= 8; h++) {
+            ZNAMTT[h] = new Array(8); 
+             };   ///Next
+      for (i = 0 ; i <= 8; i++) {
+       ZNAMTT[0][i] = ZNAMT0[i] ;
+       ZNAMTT[1][i] = ZNAMT1[i] ;
+       ZNAMTT[2][i] = ZNAMT2[i] ;
+       ZNAMTT[3][i] = ZNAMT3[i] ;
+       ZNAMTT[4][i] = ZNAMT4[i] ;
+       ZNAMTT[5][i] = ZNAMT5[i] ;
+       ZNAMTT[6][i] = ZNAMT6[i] ;
+       ZNAMTT[7][i] = ZNAMT7[i] ;
+       ZNAMTT[8][i] = ZNAMT8[i] ;
+      };   // Next
+        for (j = 0 ; j <= 8; j++) {
+            if (ZNAM1[j] == XNam1) {    //Then
+                m = j;
+                 break;
+            }
+           // break;
+        }
+        // For j = 0 To 8
+        // If ZNAM1(j) = XNam1 Then
+        //m = j
+        // Exit For
+        // End If
+        // Next
+        for (k = 0 ; k <= 8; k++) {
+            if (ZNAM1[k] == XNam2) {    //Then
+                n = k;
+                 break;
+            }
+          //  break;
+        }
+       return (ZNAMTT[m][n]);
+         // return (m+n);
+      } // End Function
+    </script>   
+
+<div data-role="page" id="home">
+  <div data-role="header">
+  <h1> 易 經 卜 卦 盤 </h1>
+  </div>
+  <div data-role="content">
+     <div id="main_content">
+	  <h2> 徐師易經卜卦程式(用書本任翻三次取得三數輸入)</h2>
+      <h3>卜卦首重心誠,先尋安靜場所,備一本書,洗手臉漱口,整容淨身,</h3>
+      <h3>雙手合掌閉目,默念所求之事如下七遍(完後翻書三次):</h3>
+      <h3>觀世音菩薩在上,弟子口口口,心中有........,疑惑困難</h3>
+      <h3>請 菩薩慈悲為弟子以易經卦象來指示吉凶方向.</h3>
+      <h3>請輸入佛神菩薩所賜三數碼</h3>
+      </div>
+	<form id="form14_1_2" name="form14_1_2">
+      <div data-role="fieldcontain">
+        <label for="opd1">數碼一[內卦]： </label>
+        <input type="text" name="opd1" id="opd1"
+               value=" " data-mini="true"/>
+             <!--  value="5" data-mini="true"/> -->
+      </div>
+       <div data-role="fieldcontain">
+        <label for="opd2">數碼二[外卦(1+2)]: </label>    
+        <input type="text" name="opd2" id="opd2"
+               value=" " data-mini="true"/>
+      </div> 
+     <div data-role="fieldcontain">
+        <label for="opd3">數碼三[變爻]: </label>    
+        <input type="text" name="opd3" id="opd3"
+               value=" " data-mini="true"/>
+      </div> 
+      <!-- <div data-role="fieldcontain">
+         <label for="msg">使用訊息視窗</label>
+         <input type="checkbox" name="msg" id="msg" 
+                checked/>
+      </div>   -->  
+     <!-- <a href="#" data-role="button" onclick="cal();"
+         data-inline="true" data-mini="true">計算</a> -->
+        <a href="#" data-role="button" onclick="cald();"
+         data-inline="true" data-mini="true">排算</a>   
+    </form>
+    <div id="output"></div>
+    </div>
+   </div>
+  <!--<BODY bgcolor="#FFFFFF">
+  <CENTER><H2> 易 經 八 卦 盤 與 評 論 表 如 下<HR></H2>
+  <TABLE Border=1 Width=60%  BGCOLOR=#FFFF00>-->
+   <!--<TR><TD width=30>卦名</TD><TD width=30>成卦</TD><TD width =30>變爻</TD><TD width =30>卦名</TD><TD width =30>之卦</TD></TR>
+   // ''Dim Row1 ,Row2 ,Row3 ,Row4 ,Row5 ,Row6 ,Row7 ,Row8 ,RowT
+    // Response.Write (RowT)
+    document.Write (RowT);-->
+   <!--</TABLE></CENTER>
+  </BODY> -->
+    <!--第二頁-->
+	
+</body>
+</html>
